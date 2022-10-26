@@ -39,7 +39,13 @@ exports.updateBlog = async (req, res) => {
 exports.deleteBlog = async (req, res) => {
   try {
     const blog = await blogService.deleteBlog(req.params.id);
-    res.json({ data: blog, status: "success" });
+    if(blog){
+      res.json({ msg: "Blog deleted successfuly", status: "success" });
+    }
+    else{
+      res.status(404).json({ msg: "Blog not found", status: "fail" });
+    }
+    
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

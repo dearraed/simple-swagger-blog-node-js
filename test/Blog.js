@@ -96,7 +96,7 @@ describe("Blogs", () => {
       });
     });
   });
-  describe("/DELETE/:id blog", () => {
+  describe.skip("/DELETE/:id blog", () => {
     it("it should DELETE a blog given the id", (done) => {
       let blog = new Blog({
         title: "This is the first blog",
